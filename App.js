@@ -3,13 +3,18 @@ import * as React from 'react';
 
 import { createDrawerNavigator ,DrawerContentScrollView,DrawerItem,DrawerItemList} from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
 import NotificationsScreen from './screens/NotificationScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomDrawerContent from './screens/CustomDrawerContent';
 import CourseScreen from './screens/CourseScreen';
 import CurrentAffairScreen from './screens/CurrentAffairScreen';
+import VideoPlayerScreen from './screens/VideoPlayerScreen';
+import CoursePlayScreen from './screens/CoursePlayScreen';
+import { HeaderButton } from 'react-navigation-header-buttons';
+import { Alert } from 'react-native';
+import { create } from 'react-test-renderer';
 
 
 
@@ -28,24 +33,29 @@ function MyHomeStack(){
     }} name="notification" component={NotificationsScreen} />
 
     <Stack.Screen options={{
-      headerTitle:'Course'
+      headerTitle:'',
+      headerShown:true,
+      headerTransparent:true,
+     
     }} name="course" component={CourseScreen} />
 
+    <Stack.Screen options={{
+      headerTitle:'Current Affair',      
+    }} name="currentAffairs" component={CurrentAffairScreen} />
+
+
+  <Stack.Screen options={{
+    headerShown:false 
+  }} name='video' component={CoursePlayScreen
+  } />
+ 
   </Stack.Navigator>
   )
 }
 
 
-// const CurrentAffairStack =  createStackNavigator();
-// function  MyCurrentAffairStack(){
 
-//     return(
-//       <CurrentAffairStack.Navigator>
-//         <CurrentAffairStack.Screen name="currentAffair" component={CurrentAffairScreen} />
-//       </CurrentAffairStack.Navigator>
-//     )
 
-// }
 
 
 const Drawer = createDrawerNavigator();
@@ -55,7 +65,6 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />  } initialRouteName="Home">
         <Drawer.Screen name="Home" component={MyHomeStack} />
-       
       </Drawer.Navigator>
     </NavigationContainer>
   );

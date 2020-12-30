@@ -11,7 +11,9 @@ const CustomDrawerContent =  props => {
         <DrawerContentScrollView {...props}>
             <View style={{flex:1}}>
                 <View style={styles.container}>
-                    <TouchableHighlight onPress={() => {}} style={styles.touch}>
+                    <TouchableHighlight onPress={() => {
+                        props.navigation.navigate('video')
+                    }} style={styles.touch}>
                         <Image source={{ uri:'https://i.pravatar.cc/300'}} style={styles.img} resizeMode='cover' />
                     </TouchableHighlight>
 
@@ -21,8 +23,9 @@ const CustomDrawerContent =  props => {
             </View>
 
             <DrawerItemList {...props} />
-                 <DrawerItem label="Share"  icon={({ focused }) => <Ionicons color='red' size={25} name='md-share' />} onPress={() => {}} />
-                <DrawerItem label="Current Affair" />
+                 <DrawerItem focused label="Share"  icon={({ focused }) => <Ionicons color='red' size={25} name='md-share' />} onPress={() => {}} />
+                <DrawerItem label="Current Affair" onPress={() => {props.navigation.navigate('currentAffairs')}} />
+                {/* <DrawerItem label="Video Player" onPress={() => {props.navigation.navigate('video')}} /> */}
         </DrawerContentScrollView>
 
     )

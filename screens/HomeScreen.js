@@ -15,7 +15,6 @@ const images =  [
  'https://fakeimg.pl/350x200/ff0000/000/'
 ]
     const HomeScreen = ({navigation}) => {
-
       
      useLayoutEffect(() => {
        navigation.setOptions({
@@ -29,12 +28,17 @@ const images =  [
          headerRight:() => (
           <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
           <Item title="Men" iconName='md-notifications-circle' onPress={() => {
-            navigation.navigate('notification')
+            navigation.navigate('course')
           }} />
          </HeaderButtons>
          )
        })
      })
+
+
+     const onHandlePress =  () => {
+       console.log('onPress event');
+     }
 
       return(
           <ScrollView style={styles.container}>
@@ -107,7 +111,7 @@ const images =  [
               showsHorizontalScrollIndicator={false}>
 
                   
-                <HorizontalScroll/>
+                <HorizontalScroll onHandlePress={onHandlePress}/>
                 <HorizontalScroll/>
                   
                 <HorizontalScroll/>
