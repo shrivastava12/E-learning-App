@@ -49,7 +49,9 @@ const images =  [
 
         <View style={styles.categoryContainer}>
             <View style={styles.category} onPress={() => {console.log('click')}}>
-              <TouchableOpacity style={styles.categoryIcon}>
+              <TouchableOpacity onPress={
+                () => {navigation.navigate('courseList')}
+              } style={styles.categoryIcon}>
                 <Ionicons name="md-restaurant" size={35} color="#FF6347" />
               </TouchableOpacity>
               <Text>SSC</Text>
