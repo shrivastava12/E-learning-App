@@ -16,6 +16,7 @@ import { Alert } from 'react-native';
 import { create } from 'react-test-renderer';
 import CourseListScreen from './screens/CourseListScreen';
 import LoginScreen from './screens/LoginScreen';
+import test from './screens/test';
 
 
 
@@ -26,6 +27,11 @@ function MyHomeStack(){
   return(
     <Stack.Navigator>
         {/* <Stack.Screen name="login" component={LoginScreen} /> */}
+
+
+    <Stack.Screen name="login" options={{
+      headerShown:false
+    }} component={LoginScreen} />
     <Stack.Screen name="Home" options={{
         headerTitle:'Adda 24*7',
         headerTitleAlign:'center'
@@ -61,15 +67,15 @@ function MyHomeStack(){
   )
 }
 
-const StartStack =  createStackNavigator();
+// const StartStack =  createStackNavigator();
 
-function MyStartStack() {
-  return(
-    <StartStack.Navigator>
-      <StartStack.Screen name="login" component={LoginScreen}  />
-    </StartStack.Navigator>
-  )
-}
+// function MyStartStack() {
+//   return(
+//     <StartStack.Navigator>
+//       <StartStack.Screen name="login" component={LoginScreen}  />
+//     </StartStack.Navigator>
+//   )
+// }
 
 
 
