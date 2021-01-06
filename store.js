@@ -1,9 +1,23 @@
 import {createStore,applyMiddleware,compose} from 'redux';
 import rootReducer from './reducers';
 import thunk from 'redux-thunk';
+import AsyncStorage from '@react-native-community/async-storage';
 
+const token =  async() => {
+    return await AsyncStorage.getItem('token')
+}
 
-const initialState = {};
+const user =  async() => {
+    return await AsyncStorage.getItem('user')
+}
+
+const initialState = {
+    auth:{
+        token:token,
+        isAuthenticated:token ? true : false,
+        user:user
+    }
+};
 
 const middleware = [thunk];
 

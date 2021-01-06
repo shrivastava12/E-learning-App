@@ -1,10 +1,21 @@
 import React from 'react';
-import {View,Text,TextInput} from 'react-native';
+import {View,Text,TextInput,Button} from 'react-native';
 import FontAweasome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
+import AsyncStorage from '@react-native-community/async-storage';
+import { login } from '../actions/authAction';
+import { connect } from 'react-redux';
 
-const test = () => {
+
+const test = ({login,isAuthenticated}) => {
+
+
+   const onClick = () => {
+       login('shrivastava@gamil.com','1234565');
+       
+   }
+
     return(
         <View style={{flex:1,justifyContent:'center'}}>
             <View style={{flexDirection:'row',padding:10,margin:40,alignItems:'center',justifyContent:'flex-start'}}>
@@ -13,8 +24,13 @@ const test = () => {
             
                 <Feather style={{marginTop:8}}  name="check-circle" color="green" size={20} />
             </View>
+            <Button title="click here" onPress={() =>  onClick()} />
         </View>
     )
 };
 
-export default test;
+const mapStateToProps = state =>  ({
+    isAuthenticated:state.auth.isAuthenticated
+})
+
+export default  connect(mapStateToProps,{login})(test);

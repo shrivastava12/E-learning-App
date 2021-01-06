@@ -17,7 +17,8 @@ import { create } from 'react-test-renderer';
 import CourseListScreen from './screens/CourseListScreen';
 import LoginScreen from './screens/LoginScreen';
 import test from './screens/test';
-
+import {Provider} from 'react-redux';
+import store from './store';
 
 
 const Stack =  createStackNavigator();
@@ -31,7 +32,7 @@ function MyHomeStack(){
 
     <Stack.Screen name="login" options={{
       headerShown:false
-    }} component={LoginScreen} />
+    }} component={test} />
     <Stack.Screen name="Home" options={{
         headerTitle:'Adda 24*7',
         headerTitleAlign:'center'
@@ -96,13 +97,15 @@ export default function App() {
 // },[isAuthenticated])
 
   return (
-    <NavigationContainer>
-     
-          <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />  } initialRouteName="Home">
-          <Drawer.Screen name="Home" component={MyHomeStack} />
-        </Drawer.Navigator>
-        
-     
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+      
+            <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />  } initialRouteName="Home">
+            <Drawer.Screen name="Home" component={MyHomeStack} />
+          </Drawer.Navigator>
+          
+      
+      </NavigationContainer>
+    </Provider>
   );
 }
