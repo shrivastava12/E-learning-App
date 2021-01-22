@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, StyleSheet,TouchableHighlight,View,Text,Image, Alert } from 'react-native';
+import { StyleSheet,TouchableHighlight,View,Text,Image } from 'react-native';
 import {DrawerContentScrollView,DrawerItem,DrawerItemList} from '@react-navigation/drawer';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Antidesign from 'react-native-vector-icons/AntDesign';
 
 const CustomDrawerContent =  props => {
 
@@ -23,9 +23,17 @@ const CustomDrawerContent =  props => {
             </View>
 
             <DrawerItemList {...props} />
-                 <DrawerItem focused label="Share"  icon={({ focused }) => <Ionicons color='red' size={25} name='md-share' />} onPress={() => {}} />
-                <DrawerItem label="Current Affair" onPress={() => {props.navigation.navigate('currentAffairs')}} />
+                
+                <DrawerItem style={{
+                    marginLeft:20
+                }} label="Current Affair" icon={() => <FontAwesome color="red" size={23} name="bookmark" />} onPress={() => {props.navigation.navigate('currentAffairs')}} />
                 {/* <DrawerItem label="Video Player" onPress={() => {props.navigation.navigate('video')}} /> */}
+                <DrawerItem style={{
+                    marginLeft:20
+                }}  label="Share"  icon={() =><Antidesign color="red" size={23} name="sharealt" />}  onPress={() => {
+                        props.navigation.navigate('video')                    
+                }} />
+               
         </DrawerContentScrollView>
 
     )
@@ -53,6 +61,6 @@ const styles =  StyleSheet.create({
         marginTop:5,
         color:'white'
     }
-})
+});
 
 export default CustomDrawerContent;

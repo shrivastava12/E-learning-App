@@ -10,7 +10,7 @@ const CourseScreen =  () => {
             
 
         <View style={{margin:20}}>
-            <Button title={`${'200$'} Buy Now  `} color='red' ></Button>
+            <Button title='start the course' color='red' ></Button>
         </View>
         <View style={{marginLeft:20}} >
             <Text style={{color:'grey',fontSize:16}}>About Course</Text>

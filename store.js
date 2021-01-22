@@ -1,28 +1,27 @@
 import {createStore,applyMiddleware,compose} from 'redux';
 import rootReducer from './reducers';
 import thunk from 'redux-thunk';
-import AsyncStorage from '@react-native-community/async-storage';
 
-const token =  async() => {
-    return await AsyncStorage.getItem('token')
-}
 
-const user =  async() => {
-    return await AsyncStorage.getItem('user')
-}
+// var token = ''
+// let user = null
 
-const initialState = {
-    auth:{
-        token:token,
-        isAuthenticated:token ? true : false,
-        user:user
-    }
-};
+// const user1 = async() =>{
+//     user =  await AsyncStorage.getItem('user')
+// }
+// user1();
+// const initialState = {
+    
+//     auth:{
+//         token: AsyncStorage.getItem('token'),
+//         isAuthenticated:token ? true : false,
+//         user:user
+//     }
+// };
+// console.log('init',initialState.auth)
 
-const middleware = [thunk];
 
+const middleware = [thunk]
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store =  createStore(rootReducer,initialState,composeEnhancers(applyMiddleware(...middleware)));
-
+const store =  createStore(rootReducer,composeEnhancers(applyMiddleware(...middleware)));
 export default store;

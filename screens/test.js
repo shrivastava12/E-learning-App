@@ -10,10 +10,12 @@ import { connect } from 'react-redux';
 
 const test = ({login,isAuthenticated}) => {
 
+    // AsyncStorage.setItem('dfsd','dfsdfs')
 
-   const onClick = () => {
-       login('shrivastava@gamil.com','1234565');
+   const onClick =async () => {
        
+       const abc = await AsyncStorage.getItem('dfsd')
+       console.log(abc)
    }
 
     return(

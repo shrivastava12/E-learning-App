@@ -5,7 +5,7 @@ const HorizontalScroll =  ({onHandlePress}) => {
     return(
         
         <TouchableOpacity activeOpacity={0.8} onPress={() => {onHandlePress()}}>
-        <View style={{height:150,width:150,marginLeft:20,borderWidth:1,borderColor:'#dddddd'}}>
+        <View style={{height:170,width:150,marginLeft:20,borderWidth:1,borderColor:'#dddddd'}}>
              <View style={{flex:2}}>
                     <Image source={{uri :'https://fakeimg.pl/350x200/ff0000/000/'}} 
                      style={{flex:1, width:null, height:null, resizeMode:'cover'}} />

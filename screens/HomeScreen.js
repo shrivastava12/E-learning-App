@@ -108,7 +108,7 @@ const images =  [
             </Text>
           </View>
         </View>
-          <View style={{height:130,backgroundColor:'#fff'}}>
+          <View style={{height:200,backgroundColor:'#fff'}}>
               <ScrollView horizontal={true}
               showsHorizontalScrollIndicator={false}>
 
