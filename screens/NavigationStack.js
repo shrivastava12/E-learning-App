@@ -17,6 +17,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 import SplashScreen from 'react-native-splash-screen'
+import QuizHomeScreen from './QuizHomeScreen';
 
 const NavigationStack =  ({isAuthenticated,user,token,getAuthToken,isLoading}) => {
 
@@ -77,6 +78,11 @@ setTimeout(() => {
         headerShown:false 
       }} name='video' component={CoursePlayScreen
       } />
+
+      <Stack.Screen options={{
+        headerShown:true,
+        headerTitle:'Quizzes'
+      }} name='quiz' component={QuizHomeScreen} />
     
      
       </Stack.Navigator>

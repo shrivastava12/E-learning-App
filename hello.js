@@ -1,13 +1,19 @@
-function convertBinary(dec) {
-  let binary = ''
-  while (dec !== 0) {
-    let temp = Math.floor(dec / 2)
-    binary = `${Math.floor(dec % 2)}${binary}`
-    dec = temp
-  }
-  binary = binary.split('0')
 
-  return binary.sort()[binary.length -1].length
+const p = {
+    "p1":"Value1",
+    "p2":"value2",
+    "p3":"value3"
 }
 
-console.log(convertBinary(500009090))
+
+
+
+// const num =  'sdfssdffdssdfsldsfslsdfsdf'
+
+// function some(ls, ss) {
+//   for(let i=0;i<ls.length;i++){
+//       if()
+//   }
+// }
+
+// some(num,'a')

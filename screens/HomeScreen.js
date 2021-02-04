@@ -10,9 +10,10 @@ import NotificationsScreen from './NotificationScreen';
 
 
 const images =  [
- 'https://fakeimg.pl/350x200/ff0000/000/',
- 'https://fakeimg.pl/350x200/ff0000/000/',
- 'https://fakeimg.pl/350x200/ff0000/000/'
+  'https://i.ytimg.com/vi/_bP8Hal24IQ/maxresdefault.jpg',
+ 'https://i.ytimg.com/vi/AUeBpm_BMSA/maxresdefault.jpg',
+ 'https://i.ytimg.com/vi/mWOpHgeZjxc/maxresdefault.jpg'
+ 
 ]
     const HomeScreen = ({navigation}) => {
       
@@ -42,9 +43,9 @@ const images =  [
 
       return(
           <ScrollView style={styles.container}>
-              <SliderBox images={images}  sliderBoxHeight={200}
+              <SliderBox images={images}  sliderBoxHeight={220} sliderBoxWidth={100}
   onCurrentImagePressed={index => console.log(`image ${index} pressed`)}
-  dotColor="#FFEE58"
+  dotColor="black"
   inactiveDotColor="#90A4AE" />
 
         <View style={styles.categoryContainer}>
