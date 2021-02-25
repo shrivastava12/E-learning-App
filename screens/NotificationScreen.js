@@ -10,6 +10,10 @@ const NotificationsScreen = () => {
           
             <ListView/>
             <ListView/>
+            <ListView/>
+            <ListView/>
+            <ListView/>
+            <ListView/>
        </ScrollView>
 
        

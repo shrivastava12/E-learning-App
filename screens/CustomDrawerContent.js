@@ -26,21 +26,21 @@ const CustomDrawerContent =  props => {
                 
                 <DrawerItem style={{
                     marginLeft:20
-                }} label="Current Affair" icon={() => <FontAwesome color="green" size={25} name="bookmark" />} onPress={() => {props.navigation.navigate('currentAffairs')}} />
+                }} label="Current Affair" icon={() => <FontAwesome color="grey" size={25} name="bookmark" />} onPress={() => {props.navigation.navigate('currentAffairs')}} />
                 {/* <DrawerItem label="Video Player" onPress={() => {props.navigation.navigate('video')}} /> */}
                 <DrawerItem style={{
                     marginLeft:20
-                }}  label="Share"  icon={() =><Antidesign color="green" size={25} name="sharealt" />}  onPress={() => {
+                }}  label="Share"  icon={() =><Antidesign color="grey" size={25} name="sharealt" />}  onPress={() => {
                         props.navigation.navigate('video')                    
                 }} />
                 <DrawerItem style={{
                     marginLeft:20
-                }} label="Quiz" icon={() => <FontAwesome color="green" size={25} name="address-book-o" />}  onPress={() => {
+                }} label="Quiz" icon={() => <FontAwesome color="grey" size={25} name="address-book-o" />}  onPress={() => {
                     props.navigation.navigate('quiz')
                 }} />
 
                 <DrawerItem label="test" onPress={() => {
-                    props.navigation.navigate('video')
+                    props.navigation.navigate('question')
                 }} />
                
         </DrawerContentScrollView>

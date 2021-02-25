@@ -1,13 +1,17 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text,TouchableOpacity} from 'react-native';
 import FontAweasome from 'react-native-vector-icons/FontAwesome';
 import Antidesign from 'react-native-vector-icons/AntDesign';
 
-const QuizListItem =  ({iconName,CategoryName}) => {
+const QuizListItem =  ({iconName,CategoryName,hanldeOnPress}) => {
+
+
+
+ 
 
     return(
 <>
-        <View
+        <TouchableOpacity activeOpacity={0.5} onPress={() => {hanldeOnPress()}}
         style={styles.row}>
         <View
           style={styles.iconWrapper}>
@@ -24,7 +28,7 @@ const QuizListItem =  ({iconName,CategoryName}) => {
           size={18}
           color="black"
         />
-      </View>
+      </TouchableOpacity>
 
 
 </>

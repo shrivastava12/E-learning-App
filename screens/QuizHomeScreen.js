@@ -3,11 +3,18 @@ import {ScrollView,View} from 'react-native';
 import QuizListItem from '../components/QuizListItem';
 
 
-const QuizHomeScreen = () => {
+
+
+const QuizHomeScreen = (props) => {
+
+  const onHandlePress = () => {
+    props.navigation.navigate('quizList')
+  }
+
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#fff'}}>
       <View style={{padding: 10}}>
-        <QuizListItem iconName="book" CategoryName="Quantative Aptitude"/>
+        <QuizListItem iconName="book" CategoryName="Quantative Aptitude" hanldeOnPress={onHandlePress} />
         <QuizListItem iconName="copy" CategoryName="English"/>
         <QuizListItem iconName="bookmark" CategoryName="History"/>
         <QuizListItem iconName="flask" CategoryName="General Science"/>
@@ -17,8 +24,6 @@ const QuizHomeScreen = () => {
         <QuizListItem iconName="crop" CategoryName="Full Length Tests"/>
         <QuizListItem iconName="coffee" CategoryName="Miscellaneous Quizzes"/>
         <QuizListItem iconName="feed" CategoryName="General Awareness"/>
-       
-
       </View>
     </ScrollView>
   );

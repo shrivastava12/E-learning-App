@@ -1,6 +1,14 @@
 import React from 'react';
 import {View,Text,ScrollView,Button,Image} from 'react-native';
-const CourseScreen =  () => {
+const CourseScreen =  (props) => {
+
+
+
+    const onCourseStart = () => {
+            props.navigation.navigate('video');
+    }
+
+
     return(
         <ScrollView style={{flex:1}}>
            <View style={{height:200,alignItems:'center',justifyContent:'center',backgroundColor:'red'}}>
@@ -10,7 +18,7 @@ const CourseScreen =  () => {
             
 
         <View style={{margin:20}}>
-            <Button title='start the course' color='red' ></Button>
+            <Button title='start the course' onPress={onCourseStart} color='red' ></Button>
         </View>
         <View style={{marginLeft:20}} >
             <Text style={{color:'grey',fontSize:16}}>About Course</Text>

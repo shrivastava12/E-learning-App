@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {View,Text,StyleSheet,TouchableOpacity, TouchableOpacityBase} from 'react-native';
 import VideoPlayerScreen from './VideoPlayerScreen';
 
-const CoursePlayScreen =  () => {
+const CoursePlayScreen =  (props) => {
  
     const [check,setCheck] =  useState(true);
 
@@ -12,12 +12,16 @@ const CoursePlayScreen =  () => {
        
     }
   
+    const onPressingBack =  () => {
+        console.log('inside back function')
+        props.navigation.pop();
+    }
     
 
     return(
         <View style={styles.container}>
            
-               <VideoPlayerScreen/>     
+               <VideoPlayerScreen onPressingBack={onPressingBack} />     
             <View>
                 <TouchableOpacity activeOpacity={0.6}  onPress={onChange}>
                 <View style={{height:70,flexDirection:'row', borderBottomWidth:0.3,borderBottomColor:'grey',justifyContent:'flex-start',alignItems:'center',padding:5}}>

@@ -7,9 +7,8 @@ import VideoPlayer from 'react-native-video-controls';
 import { useEffect } from 'react';
 
 
-const VideoPlayerScreen =  ({navigation}) => {
+const VideoPlayerScreen =  (props) => {
 
-    const [videoUrl,setVideoUrl] =  useState('');
     const [completedVideo,setCompletedVideo] =  useState(false)
     const [OrientationStatus,setOrientationStatus] =  useState('');
     const [HeightLayout,setHeightLayout] = useState(Dimensions.get('window').height);
@@ -26,6 +25,7 @@ const VideoPlayerScreen =  ({navigation}) => {
 
     }
 
+    
     useEffect(() => {
         DetectOrientation();
     },[HeightLayout,WidthLayout,OrientationStatus])
@@ -33,15 +33,20 @@ const VideoPlayerScreen =  ({navigation}) => {
 
     console.log(completedVideo);
 
+   
+       
+    
+
 return(
     <View style={{ height:200,
         width:'100%',
         alignItems:"center",
         justifyContent:'center'}}>
        
-    <VideoPlayer onEnterFullscreen={() => {
-        console.log('full screen')
-    }} onEnd={() => {
+    <VideoPlayer preventsDisplaySleepDuringVideoPlayback onBack={() => {
+        props.onPressingBack()
+    }}
+    onEnd={() => {
         console.log('vide end here')
         setCompletedVideo(true);
     }} onPlay={() => {

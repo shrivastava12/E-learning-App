@@ -1,22 +1,23 @@
 
-import React,{useState} from "react";
-import {View,Text} from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
+import React from "react";
+import {View,ScrollView} from 'react-native';
+import QuizItem from '../components/QuizItem';
 
 const QuizScreen = () => {
 
-    
-
-    
-
-
     return(
-
-        <View style={{}}>
-           <FontAwesome name="bookmark" size={23} color="red"/>
-        </View>
-
+        <ScrollView style={{flex:1,padding:10}}>
+          
+            <QuizItem/>
+            <QuizItem/>
+            <QuizItem/>
+            <QuizItem/>
+            <QuizItem/>
+            <QuizItem/>
+            <QuizItem/>
+            <QuizItem/>
+            <QuizItem/>
+        </ScrollView>
     )
 
 };

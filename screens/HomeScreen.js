@@ -6,7 +6,6 @@ import { SliderBox } from "react-native-image-slider-box";
 import HorizontalScroll from '../components/HorizontalScroll';
 import { HeaderButtons,Item} from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton';
-import NotificationsScreen from './NotificationScreen';
 
 
 const images =  [
@@ -29,7 +28,7 @@ const images =  [
          headerRight:() => (
           <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
           <Item title="Men" iconName='md-notifications-circle' onPress={() => {
-            navigation.navigate('course')
+            navigation.navigate('notification')
           }} />
          </HeaderButtons>
          )
@@ -124,14 +123,14 @@ const images =  [
           
         {/* Horizontal scroll section end here */}
 
-          <View style={{marginTop:10,backgroundColor:'#fff',height:100,alignItems:'center',justifyContent:'center'}}>
+          {/* <View style={{marginTop:10,backgroundColor:'#fff',height:100,alignItems:'center',justifyContent:'center'}}>
             <View style={{height:80,backgroundColor:'grey',width:'80%'}}>
               <TouchableOpacity style={[styles.categoryIcon,{borderRadius:0,backgroundColor:'grey',}]}>
                  <Ionicons name="md-restaurant" size={35} color="#FF6347" />
                  <Text>Test series</Text>
               </TouchableOpacity>
               </View>
-          </View>
+          </View> */}
 
      </ScrollView>
       )

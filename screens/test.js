@@ -1,38 +1,87 @@
-import React from 'react';
-import {View,Text,TextInput,Button} from 'react-native';
-import FontAweasome from 'react-native-vector-icons/FontAwesome';
-import Feather from 'react-native-vector-icons/Feather';
+import { useEffect, useState } from "react";
 
-import AsyncStorage from '@react-native-community/async-storage';
-import { login } from '../actions/authAction';
-import { connect } from 'react-redux';
+const Test = () => {
+  const [hour1, setHour] = useState("00");
+  const [min1, setMin] = useState("00");
+  const [sec1, setSec] = useState("00");
+  const [time, setTime] = useState(10);
+  const [value, setValue] = useState(10);
+  const [isActive, setIsActive] = useState(false);
 
+  const changeHandler = (e) => {
+    let v = +e.target.value;
+    if (!v) {
+      v = 0;
+    }
+    setValue(v);
+  };
 
-const test = ({login,isAuthenticated}) => {
+  const clickHandler = (e) => {
+    if (isActive) setTime(0);
+    else {
+      setIsActive(true);
+      setTime(value);
+    }
+  };
 
-    // AsyncStorage.setItem('dfsd','dfsdfs')
+  const pause = (e) => {
+    setIsActive(!isActive);
+  };
 
-   const onClick =async () => {
-       
-       const abc = await AsyncStorage.getItem('dfsd')
-       console.log(abc)
-   }
+  useEffect(() => {
+    let intervalId1;
+    if (isActive) {
+      intervalId1 = setInterval(() => {
+        let time1 = time;
+        let hour = Math.floor(time1 / 3600);
+        let min = Math.floor(time1 / 60);
+        let sec = Math.floor(time1 % 60);
 
-    return(
-        <View style={{flex:1,justifyContent:'center'}}>
-            <View style={{flexDirection:'row',padding:10,margin:40,alignItems:'center',justifyContent:'flex-start'}}>
-            <FontAweasome name='user-o' color='green' size={20} />
-                <TextInput style={{borderBottomWidth:1,marginHorizontal:10,flex:1,}} placeholder='username' />
-            
-                <Feather style={{marginTop:8}}  name="check-circle" color="green" size={20} />
-            </View>
-            <Button title="click here" onPress={() =>  onClick()} />
-        </View>
-    )
+        if (time1 === 0) {
+          clearInterval(intervalId1);
+          setIsActive(false);
+          // FIXME: your function call goes here
+          console.log("time up");
+        }
+
+        if (hour < 1) setHour("00");
+        else if (hour < 10) setHour(`0${hour}`);
+        else setHour(`${hour}`);
+
+        if (min < 1) setMin("00");
+        else if (min < 10) setMin(`0${min}`);
+        else setMin(`${min}`);
+
+        if (sec < 10) setSec(`0${sec}`);
+        else setSec(`${sec}`);
+
+        setTime(time1 - 1);
+        console.log(time1);
+      }, 1000);
+    }
+    return () => {
+      clearInterval(intervalId1);
+    };
+  }, [time, isActive]);
+
+  return (
+    <div style={{ margin: "3rem" }}>
+      <input
+        type="text"
+        value={value}
+        onChange={changeHandler}
+        style={{ margin: "1rem", padding: "6px" }}
+      />
+      <button onClick={clickHandler} style={{ padding: "6px", margin: "1rem" }}>
+        {isActive ? "stop" : "start"}
+      </button>
+
+      <button onClick={pause} style={{ padding: "6px", margin: "1rem" }}>
+        {isActive ? "pause" : "play"}
+      </button>
+
+      {`${hour1}: ${min1}: ${sec1}`}
+    </div>
+  );
 };
-
-const mapStateToProps = state =>  ({
-    isAuthenticated:state.auth.isAuthenticated
-})
-
-export default  connect(mapStateToProps,{login})(test);
+export default Test;
